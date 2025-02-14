@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:news_c13_friday/model/NewsResponse.dart';
+import 'package:news_c13_friday/model/news_response.dart';
 
 class NewsItem extends StatelessWidget {
   Articles article;
@@ -23,7 +23,11 @@ class NewsItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(24),
                 child: CachedNetworkImage(
                   imageUrl: article.urlToImage ?? "",
-                  placeholder: (context, url) => CircularProgressIndicator(),
+                  height: 220,
+                  width: double.infinity,
+                  fit: BoxFit.fill,
+                  placeholder: (context, url) =>
+                      Center(child: CircularProgressIndicator()),
                   errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               ),
@@ -45,7 +49,7 @@ class NewsItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(" By : ${article.author}"),
+                  Text(" By : ${article.author?.split(" ").first}"),
                   Text(article.publishedAt?.substring(0, 10) ?? "")
                 ],
               )

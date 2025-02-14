@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ? CategoriesSection(
               onCategoryClick: onCategoryClicked,
             )
-          : TabsSection(categoryName: selectedCategory!),
+          : TabsSection(categoryName: selectedCategory!,onTap: onBack,),
     );
   }
 
