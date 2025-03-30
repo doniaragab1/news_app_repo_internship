@@ -49,7 +49,7 @@ class NewsItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(" By : ${article.author?.split(" ").first}"),
+                  Text(" Byyyy : ${article.author?.split(" ").first}"),
                   Text(article.publishedAt?.substring(0, 10) ?? "")
                 ],
               )
